@@ -1,800 +1,237 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>悉尼华人基督复临安息日会 | Sydney Chinese Seventh-day Adventist Church</title>
-  
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Simplified Chinese (Noto Serif SC & Noto Sans SC) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            cinnabar: {
-              DEFAULT: '#8C1D18',
-              dark: '#6A130F',
-              light: '#A82B25'
-            },
-            imperialGold: {
-              DEFAULT: '#C5A059',
-              light: '#E5C483',
-              dark: '#9E7D3B'
-            },
-            sdaOrange: '#EE7202',
-            jade: '#2D5A46',
-            ink: '#1F2421',
-            paper: '#FBF9F5',
-            paperBorder: '#EFE7DA'
-          },
-          fontFamily: {
-            serifSc: ['"Noto Serif SC"', 'serif'],
-            sansSc: ['"Noto Sans SC"', '"Plus Jakarta Sans"', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
-
-  <style>
-    body {
-      background-color: #FBF9F5;
-      color: #1F2421;
-      font-family: 'Noto Sans SC', 'Plus Jakarta Sans', sans-serif;
-      -webkit-tap-highlight-color: transparent;
-    }
-    /* Chinese traditional lattice corner accent */
-    .chinese-border {
-      border: 1px solid #EFE7DA;
-      position: relative;
-    }
-    .chinese-border::before {
-      content: "";
-      position: absolute;
-      top: 2px; left: 2px; width: 6px; height: 6px;
-      border-top: 2px solid #C5A059;
-      border-left: 2px solid #C5A059;
-    }
-    .chinese-border::after {
-      content: "";
-      position: absolute;
-      bottom: 2px; right: 2px; width: 6px; height: 6px;
-      border-bottom: 2px solid #C5A059;
-      border-right: 2px solid #C5A059;
-    }
-    .tab-content { display: none; }
-    .tab-content.active { display: block; animation: fadeIn 0.25s ease-in-out; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sydney Chinese SDA Church 悉尼华人基督复临安息日会</title>
+<style>
+:root{--red:#9e1b1b;--gold:#c9a227;--ink:#2b1d1d;--paper:#fff8ec;--card:#fff;--line:#ecd9b0}
+*{box-sizing:border-box}
+html{font-size:20px;scroll-behavior:smooth}
+body{margin:0;font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;padding-bottom:5.2rem}
+body.zh .en,body:not(.zh) .zh{display:none!important}
+h1,h2,h3{font-family:"Noto Serif SC","Songti SC",Georgia,serif;line-height:1.3;margin:.2em 0 .5em}
+h1{font-size:1.7rem}h2{font-size:1.5rem;color:var(--red)}h3{font-size:1.2rem}
+a{color:var(--red)}
+header{position:sticky;top:0;z-index:10;background:var(--red);color:#fff;border-bottom:4px solid var(--gold);padding:.5rem .8rem;padding-top:max(.5rem,env(safe-area-inset-top));display:flex;align-items:center;gap:.6rem}
+.logo{width:2.6rem;height:2.6rem;border-radius:50%;background:var(--gold);color:var(--red);display:grid;place-items:center;font-weight:700;font-size:1.3rem;flex:none;font-family:serif}
+.brand{flex:1;font-size:.85rem;line-height:1.25}.brand b{display:block;font-size:1.05rem}
+.lang{display:flex;border:2px solid var(--gold);border-radius:2rem;overflow:hidden;flex:none}
+.lang button{background:none;border:0;color:#fff;font-size:.85rem;padding:.4rem .7rem;min-height:2.4rem}
+.lang button.on{background:var(--gold);color:var(--red);font-weight:700}
+nav{position:fixed;bottom:0;left:0;right:0;z-index:10;background:#fff;border-top:3px solid var(--gold);display:grid;grid-template-columns:repeat(4,1fr);padding-bottom:env(safe-area-inset-bottom)}
+nav a{text-align:center;text-decoration:none;color:var(--ink);font-size:.8rem;padding:.5rem .1rem;min-height:3.4rem}
+nav a span.i{display:block;font-size:1.4rem;line-height:1.2}
+nav a.on{color:var(--red);font-weight:700;background:#fdf1d4}
+.page{display:none;animation:f .3s}.page.on{display:block}@keyframes f{from{opacity:0}to{opacity:1}}
+.wrap{padding:1rem}
+.hero{background:linear-gradient(160deg,#7d1212,#b32626);color:#fff;padding:1.6rem 1rem 2rem;text-align:center;position:relative;border-bottom:6px solid var(--gold)}
+.hero:before{content:"福";position:absolute;right:-.5rem;top:-1.5rem;font-size:9rem;color:rgba(255,215,120,.12);font-family:serif}
+.hero p{margin:.5rem 0}
+.motto{color:var(--gold);font-weight:700;letter-spacing:.03em;font-size:1.1rem}
+.verse{background:rgba(255,255,255,.12);border-left:4px solid var(--gold);padding:.7rem .9rem;text-align:left;border-radius:.4rem;font-size:.95rem;margin:1rem 0}
+.times{display:grid;gap:.5rem;margin:1rem 0}
+.times div{background:#fff;color:var(--ink);border-radius:.6rem;padding:.6rem;font-size:1rem}
+.times b{color:var(--red)}
+.btn{display:block;text-align:center;background:var(--gold);color:#3a2000;font-weight:700;text-decoration:none;padding:.8rem 1rem;border-radius:.7rem;margin:.6rem 0;border:0;width:100%;font-size:1rem;min-height:3rem;font-family:inherit}
+.btn.red{background:var(--red);color:#fff}.btn.out{background:#fff;color:var(--red);border:2px solid var(--red)}
+.card{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--red);border-radius:.7rem;padding:1rem;margin:1rem 0;box-shadow:0 2px 6px rgba(120,60,0,.08)}
+.card h3{margin-top:0}
+.map{width:100%;height:18rem;border:0;border-radius:.6rem}
+.video{position:relative;padding-top:56.25%;border-radius:.6rem;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+select,input,textarea{width:100%;font-size:1rem;padding:.7rem;border:2px solid var(--line);border-radius:.5rem;margin:.3rem 0 .7rem;font-family:inherit;background:#fff}
+label{font-weight:700;font-size:.95rem}
+.grid{display:grid;gap:.8rem}
+.item{display:block;text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:.6rem;padding:.8rem}
+.item small{display:block;color:#7a5a3a}
+.tag{display:inline-block;background:#fdf1d4;color:var(--red);border-radius:1rem;padding:.1rem .7rem;font-size:.8rem;margin-top:.3rem}
+ul.clean{list-style:none;padding:0;margin:0}
+ul.clean li{padding:.6rem 0;border-bottom:1px dashed var(--line)}ul.clean li:last-child{border:0}
+footer{background:#3a1010;color:#f5e6c4;padding:1.2rem 1rem;font-size:.95rem}
+footer a{color:var(--gold)}
+.pat{height:.6rem;background:repeating-linear-gradient(90deg,var(--gold) 0 .8rem,var(--red) .8rem 1.6rem)}
+</style>
 </head>
-<body class="pb-24">
+<body>
 
-  <!-- ================= TOP APP BAR ================= -->
-  <header class="sticky top-0 z-40 bg-cinnabar text-white shadow-md">
-    <div class="max-w-md mx-auto px-4 py-2.5 flex items-center justify-between">
-      <div class="flex items-center space-x-2.5">
-        <!-- Feature 3: Uploaded Logo -->
-        <img 
-          src="image.png" 
-          onerror="this.src='input_file_0.jpeg'; this.onerror=function(){this.src='logo.jpg';};" 
-          alt="SDA Church Logo" 
-          class="w-9 h-9 rounded-lg bg-sdaOrange p-0.5 object-contain shadow-sm border border-imperialGold/40"
-        />
-        <div>
-          <!-- Feature 4: Chinese wording next to logo -->
-          <h1 class="text-sm font-serifSc font-bold tracking-tight leading-tight" data-i18n="church_title">悉尼华人基督复临安息日会</h1>
-          <p class="text-[10px] uppercase tracking-wider text-imperialGold-light font-semibold">Sydney Chinese SDA Church</p>
-        </div>
-      </div>
+<header>
+  <div class="logo">✝</div>
+  <div class="brand"><b>悉尼华人基督复临安息日会</b><span>Sydney Chinese SDA Church</span></div>
+  <div class="lang" role="group" aria-label="Language">
+    <button id="bEn" class="on" onclick="setLang('en')">EN</button>
+    <button id="bZh" onclick="setLang('zh')">中文</button>
+  </div>
+</header>
+<div class="pat"></div>
 
-      <!-- Feature 1: Bilingual Language Switcher (Default Simplified Chinese) -->
-      <button onclick="toggleLanguage()" class="flex items-center space-x-1 text-xs bg-cinnabar-dark px-2.5 py-1.5 rounded-full border border-imperialGold/40 text-imperialGold-light hover:bg-black/20 transition">
-        <i data-lucide="globe" class="w-3.5 h-3.5"></i>
-        <span id="lang-indicator" class="font-bold">English</span>
-      </button>
+<!-- 1 HOME -->
+<main id="home" class="page on">
+  <section class="hero">
+    <h1 class="zh">欢迎来到悉尼华人基督复临安息日会</h1>
+    <h1 class="en">Welcome to Sydney Chinese Seventh-day Adventist Church</h1>
+    <p class="motto"><span class="en">Discover God · Finding Hope · Belong</span><span class="zh">寻见上帝 · 寻得盼望 · 归属家园</span></p>
+    <div class="verse">
+      <span class="en">“If from there you seek the LORD your God, you will find him if you seek him with all your heart and with all your soul.” — Deuteronomy 4:29</span>
+      <span class="zh">“你们若从那里寻求耶和华你的神，只要尽心尽性寻求他，就必寻见。” — 申命记 4:29<br><small>“If from there you seek the LORD your God, you will find him if you seek him with all your heart and with all your soul.”</small></span>
     </div>
-  </header>
-
-  <!-- ================= MAIN CONTAINER ================= -->
-  <main class="max-w-md mx-auto px-4 pt-4">
-
-    <!-- ================= PAGE 1: HOME ================= -->
-    <section id="page-home" class="tab-content active space-y-4">
-      
-      <!-- Feature 6: Banner Image (image.png / input_file_1.png) -->
-      <div class="relative overflow-hidden rounded-2xl border border-imperialGold/40 shadow-md">
-        <img 
-          src="image.png" 
-          onerror="this.src='input_file_1.png';" 
-          alt="Sydney Chinese SDA Church Family & Fellowship" 
-          class="w-full h-44 object-cover"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent flex flex-col justify-end p-4">
-          <!-- Feature 5: Integrated Slogan -->
-          <span class="inline-block px-2.5 py-0.5 text-[10px] font-bold bg-imperialGold text-cinnabar-dark rounded-full mb-1 w-max">
-            Discover God • Finding Hope • Belong
-          </span>
-          <p class="text-xs text-stone-200 font-serifSc" data-i18n="hero_slogan_cn">寻求上帝 • 寻得盼望 • 归属家园</p>
-        </div>
-      </div>
-
-      <!-- Hero Welcome Card -->
-      <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-cinnabar via-cinnabar-dark to-[#4A0D0A] text-white p-5 shadow-lg border border-imperialGold/30">
-        <div class="absolute -right-6 -bottom-6 opacity-10 text-white font-serifSc text-9xl select-none font-bold">福</div>
-        
-        <!-- Feature 2: Welcoming title -->
-        <h2 class="text-xl font-bold font-serifSc leading-snug mb-2" data-i18n="hero_heading">
-          欢迎来到悉尼华人基督复临安息日会
-        </h2>
-        
-        <!-- Feature 5 in Subtext -->
-        <p class="text-xs text-stone-200 leading-relaxed mb-4" data-i18n="hero_subtext">
-          A welcoming bilingual spiritual home in Strathfield — Discover God, Finding Hope, and Belong across generations.
-        </p>
-
-        <!-- Service Time Callout (Feature 12: 10:40 am) -->
-        <div class="bg-black/30 rounded-xl p-3 border border-white/10 space-y-2 mb-4">
-          <div class="flex items-center text-xs text-imperialGold-light font-semibold">
-            <i data-lucide="clock" class="w-3.5 h-3.5 mr-1.5"></i>
-            <span data-i18n="sabbath_service_title">每周六聚会时间 (Every Saturday)</span>
-          </div>
-          <div class="flex justify-between text-xs border-b border-white/10 pb-1.5 pt-0.5">
-            <span class="text-stone-300" data-i18n="sabbath_school">安息日学 (Bible Study)</span>
-            <span class="font-bold text-stone-100">9:30 AM</span>
-          </div>
-          <div class="flex justify-between text-xs pt-0.5 items-center">
-            <span class="text-stone-300" data-i18n="divine_service">崇拜聚会 (Divine Worship)</span>
-            <span class="font-bold text-imperialGold-light bg-black/40 px-2 py-0.5 rounded text-[11px]">10:40 AM</span>
-          </div>
-        </div>
-
-        <!-- Quick Action Buttons -->
-        <div class="grid grid-cols-2 gap-3">
-          <button onclick="switchTab('visit')" class="w-full bg-imperialGold hover:bg-imperialGold-light text-cinnabar-dark font-bold text-xs py-2.5 px-3 rounded-xl shadow flex items-center justify-center space-x-1.5 transition">
-            <i data-lucide="compass" class="w-4 h-4"></i>
-            <span data-i18n="btn_plan_visit">初访指引</span>
-          </button>
-          <button onclick="switchTab('messages')" class="w-full bg-white/10 hover:bg-white/20 text-white font-semibold text-xs py-2.5 px-3 rounded-xl border border-white/20 flex items-center justify-center space-x-1.5 transition">
-            <i data-lucide="play-circle" class="w-4 h-4"></i>
-            <span data-i18n="btn_watch_online">讲道影音</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Quick Ministry Pillars -->
-      <div class="grid grid-cols-3 gap-2.5">
-        <div onclick="switchTab('visit')" class="chinese-border bg-white rounded-xl p-3 text-center cursor-pointer shadow-sm">
-          <div class="w-8 h-8 mx-auto mb-1.5 rounded-full bg-amber-50 flex items-center justify-center text-imperialGold">
-            <i data-lucide="utensils" class="w-4 h-4"></i>
-          </div>
-          <span class="text-[11px] font-bold block" data-i18n="feat_potluck">爱筵午餐</span>
-          <span class="text-[9px] text-stone-500">Free Potluck</span>
-        </div>
-        <div onclick="switchTab('visit')" class="chinese-border bg-white rounded-xl p-3 text-center cursor-pointer shadow-sm">
-          <div class="w-8 h-8 mx-auto mb-1.5 rounded-full bg-emerald-50 flex items-center justify-center text-jade">
-            <i data-lucide="shopping-basket" class="w-4 h-4"></i>
-          </div>
-          <span class="text-[11px] font-bold block" data-i18n="feat_pantry">食物银行</span>
-          <span class="text-[9px] text-stone-500">$5 Hamper</span>
-        </div>
-        <div onclick="switchTab('connect')" class="chinese-border bg-white rounded-xl p-3 text-center cursor-pointer shadow-sm">
-          <div class="w-8 h-8 mx-auto mb-1.5 rounded-full bg-red-50 flex items-center justify-center text-cinnabar">
-            <i data-lucide="heart-handshake" class="w-4 h-4"></i>
-          </div>
-          <span class="text-[11px] font-bold block" data-i18n="feat_give">线上奉献</span>
-          <span class="text-[9px] text-stone-500">eGiving</span>
-        </div>
-      </div>
-
-      <!-- Feature 13: Bible text (Deuteronomy 4:29) -->
-      <div class="bg-amber-50/70 border border-imperialGold/30 rounded-xl p-4 text-center">
-        <p class="text-xs text-cinnabar-dark font-serifSc font-semibold leading-relaxed mb-1" data-i18n="verse_text">
-          “但你们在那里寻求耶和华你的神，你尽心尽性寻求祂的时候，就必寻见。”
-        </p>
-        <span class="text-[10px] text-stone-500 uppercase tracking-widest font-mono" data-i18n="verse_ref">
-          申命记 Deuteronomy 4:29
-        </span>
-      </div>
-
-      <!-- Footer Info (Feature 14: Phone +61 404234060) -->
-      <div class="pt-3 border-t border-paperBorder text-center space-y-2 text-xs text-stone-500">
-        <p class="font-bold text-ink">14A Jersey Road, Strathfield, NSW 2153</p>
-        <p data-i18n="footer_transport">步行 11 分钟即达 Strathfield 火车站 • 备有街边停车位</p>
-        <div class="flex justify-center items-center space-x-3 pt-1">
-          <a href="tel:+61404234060" class="text-cinnabar font-semibold hover:underline flex items-center">
-            <i data-lucide="phone" class="w-3.5 h-3.5 mr-1"></i> +61 404234060
-          </a>
-          <span>•</span>
-          <a href="https://sydneychinese.adventist.org.au" target="_blank" class="text-cinnabar hover:underline">官网</a>
-          <span>•</span>
-          <a href="https://www.facebook.com/sydneychinesesda" target="_blank" class="text-cinnabar hover:underline">Facebook</a>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ================= PAGE 2: PLAN A VISIT ================= -->
-    <section id="page-visit" class="tab-content space-y-4">
-      <div class="border-b border-paperBorder pb-3">
-        <h2 class="text-xl font-serifSc font-bold text-cinnabar" data-i18n="visit_title">参加聚会指南</h2>
-        <p class="text-xs text-stone-600" data-i18n="visit_subtitle">初次莅临？为您备妥贴心到访指引。</p>
-      </div>
-
-      <div class="space-y-3">
-        <!-- What to Expect -->
-        <div class="chinese-border bg-white rounded-xl p-4 shadow-sm">
-          <div class="flex items-center space-x-2.5 text-cinnabar mb-2.5">
-            <i data-lucide="help-circle" class="w-5 h-5"></i>
-            <h3 class="font-bold text-sm" data-i18n="expect_title">初访须知 (What to Expect)</h3>
-          </div>
-          <ul class="text-xs text-stone-600 space-y-2 pl-1">
-            <li class="flex items-start">
-              <span class="text-imperialGold mr-2 font-bold">•</span>
-              <span data-i18n="expect_attire"><strong>着装要求：</strong> 便装或休闲正装皆宜，轻松舒适即可。</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-imperialGold mr-2 font-bold">•</span>
-              <span data-i18n="expect_languages"><strong>双语传译：</strong> 现场提供普通话、粤语与英文同声传译。</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-imperialGold mr-2 font-bold">•</span>
-              <span data-i18n="expect_lunch"><strong>亚洲素食爱筵：</strong> 崇拜结束后（12:30 PM）备有丰富温热爱筵，免费欢迎所有朋友！</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-imperialGold mr-2 font-bold">•</span>
-              <span data-i18n="expect_parking"><strong>停车指引：</strong> 教堂周边的 Jersey Road 与毗邻街道均备有充裕的街边停车位。</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Features 8 & 9: Kids & Youth Ministry with Adventurers & Pathfinders Links -->
-        <div class="chinese-border bg-white rounded-xl p-4 shadow-sm">
-          <div class="flex items-center space-x-2.5 text-cinnabar mb-2">
-            <i data-lucide="smile" class="w-5 h-5"></i>
-            <h3 class="font-bold text-sm" data-i18n="kids_title">儿童与青少年事工 (Kids & Youth)</h3>
-          </div>
-          <p class="text-xs text-stone-600 leading-relaxed mb-3" data-i18n="kids_desc">
-            每周六上午 9:30 设有分龄圣经研习班、生动的故事时间与青年聚会，陪伴孩子在信仰与爱中健康成长。
-          </p>
-          <div class="grid grid-cols-2 gap-2">
-            <!-- Feature 8: Adventurer Link -->
-            <a href="https://sydneychinese.adventist.org.au/adventurers" target="_blank" class="bg-amber-50 hover:bg-amber-100 text-imperialGold-dark border border-amber-200 text-xs font-bold py-2 px-2.5 rounded-lg text-center flex items-center justify-center space-x-1 transition shadow-sm">
-              <i data-lucide="compass" class="w-3.5 h-3.5"></i>
-              <span>幼童军 (Adventurers)</span> ↗
-            </a>
-            <!-- Feature 9: Pathfinder Link -->
-            <a href="https://sydneychinese.adventist.org.au/pathfinders" target="_blank" class="bg-red-50 hover:bg-red-100 text-cinnabar border border-red-200 text-xs font-bold py-2 px-2.5 rounded-lg text-center flex items-center justify-center space-x-1 transition shadow-sm">
-              <i data-lucide="shield" class="w-3.5 h-3.5"></i>
-              <span>开拓者 (Pathfinders)</span> ↗
-            </a>
-          </div>
-        </div>
-
-        <!-- Feature 10: Community Food Pantry ($5 Hamper & Facebook Contact Link) -->
-        <div class="chinese-border bg-white rounded-xl p-4 shadow-sm border-l-4 border-l-jade">
-          <div class="flex items-center space-x-2.5 text-jade mb-2">
-            <i data-lucide="shopping-basket" class="w-5 h-5"></i>
-            <h3 class="font-bold text-sm" data-i18n="pantry_title">社区食物银行 (Community Food Pantry)</h3>
-          </div>
-          <!-- Feature 10 Exact Quote -->
-          <p class="text-xs text-stone-700 leading-relaxed mb-3 font-medium bg-emerald-50/60 p-2.5 rounded-lg border border-emerald-100" data-i18n="pantry_desc">
-            “If you need food assistance in this crazy time, just with $5 you get a hamper with fresh milk, cereal, fresh veggies and can food”
-          </p>
-          <div class="flex items-center justify-between pt-1">
-            <span class="text-[11px] text-stone-500" data-i18n="pantry_pickup">服务 Strathfield 社区与有需要的朋友</span>
-            <!-- Feature 10 Link -->
-            <a href="https://www.facebook.com/strathfield.adventist.food.pantry/about_details" target="_blank" class="bg-jade text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow hover:bg-emerald-800 transition flex items-center space-x-1">
-              <span data-i18n="pantry_get_in_touch">联系我们 (Get in Touch)</span> ↗
-            </a>
-          </div>
-        </div>
-
-        <!-- Location & Directions -->
-        <div class="chinese-border bg-white rounded-xl p-4 shadow-sm">
-          <div class="flex items-center space-x-2.5 text-cinnabar mb-2">
-            <i data-lucide="map-pin" class="w-5 h-5"></i>
-            <h3 class="font-bold text-sm" data-i18n="map_title">地址与交通指引</h3>
-          </div>
-          <p class="text-xs text-stone-600 mb-3">14A Jersey Road, Strathfield NSW 2153</p>
-          
-          <div class="w-full h-44 rounded-lg overflow-hidden border border-paperBorder relative bg-stone-200">
-            <iframe 
-              title="Church Map"
-              class="w-full h-full border-0"
-              src="https://maps.google.com/maps?q=14A%20Jersey%20Road,%20Strathfield%20NSW%202153&t=&z=15&ie=UTF8&iwloc=&output=embed">
-            </iframe>
-          </div>
-
-          <a href="https://maps.google.com/?q=14A+Jersey+Road,+Strathfield+NSW+2153" target="_blank" class="mt-3 block text-center w-full bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-bold py-2 rounded-lg transition">
-            <span data-i18n="open_google_maps">在 Google Maps 打开导航路线</span> ↗
-          </a>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ================= PAGE 3: MESSAGES & PLAYLISTS ================= -->
-    <!-- Feature 7: Synchronized with YouTube Playlists -->
-    <section id="page-messages" class="tab-content space-y-4">
-      <div class="border-b border-paperBorder pb-3">
-        <h2 class="text-xl font-serifSc font-bold text-cinnabar" data-i18n="messages_title">讲道影音与属灵资源</h2>
-        <p class="text-xs text-stone-600" data-i18n="messages_subtitle">来自悉尼华人安息日会 YouTube 官方频道的讲道与特辑播单。</p>
-      </div>
-
-      <!-- Featured Video Banner -->
-      <div class="chinese-border bg-white rounded-xl overflow-hidden shadow-sm">
-        <div class="relative bg-black aspect-video flex items-center justify-center text-white">
-          <img src="https://images.unsplash.com/photo-1519817650390-64a93db51149?w=600&auto=format&fit=crop&q=80" alt="Sermon Thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-60">
-          <a href="https://www.youtube.com/@sydneychinesesdachurch/videos" target="_blank" class="relative z-10 w-12 h-12 rounded-full bg-cinnabar flex items-center justify-center shadow-lg hover:scale-105 transition">
-            <i data-lucide="play" class="w-6 h-6 text-white ml-0.5"></i>
-          </a>
-          <span class="absolute bottom-2 right-2 text-[10px] bg-black/75 px-2 py-0.5 rounded text-white font-mono">LIVE / 崇拜直播</span>
-        </div>
-        <div class="p-4">
-          <span class="text-[10px] font-bold text-imperialGold uppercase tracking-wider" data-i18n="featured_sermon_tag">最新安息日崇拜与证道 • Live Worship</span>
-          <h3 class="font-bold text-sm text-ink mt-0.5 mb-1">主日敬拜与讲道系列 (Sabbath Sermons)</h3>
-          <p class="text-xs text-stone-500 mb-3">讲员：张耀新主任牧师 (Pr. Daniel Chong) 及教牧长执团队</p>
-          
-          <div class="flex gap-2">
-            <a href="https://www.youtube.com/@sydneychinesesdachurch/playlists" target="_blank" class="flex-1 bg-cinnabar text-white text-xs font-semibold py-2 rounded-lg flex items-center justify-center space-x-1 hover:bg-cinnabar-dark transition shadow-sm">
-              <i data-lucide="youtube" class="w-4 h-4"></i>
-              <span>查看全部播放列表</span> ↗
-            </a>
-            <button onclick="openBulletinModal()" class="flex-1 border border-cinnabar text-cinnabar text-xs font-semibold py-2 rounded-lg flex items-center justify-center space-x-1 hover:bg-red-50 transition">
-              <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
-              <span data-i18n="digital_bulletin">本周周报 (Bulletin)</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Feature 7: Official YouTube Playlists Grid -->
-      <div>
-        <h3 class="text-xs font-bold text-stone-700 uppercase tracking-wider mb-2 flex items-center" data-i18n="playlist_heading">
-          <i data-lucide="list-video" class="w-3.5 h-3.5 mr-1.5 text-cinnabar"></i> 精选系列播单 (Featured Playlists)
-        </h3>
-
-        <div class="space-y-2.5">
-          <!-- Playlist 1: 2026 Worship & Sermon -->
-          <a href="https://www.youtube.com/playlist?list=PLYqO22feYsoY8TLf0Xsm2rQ9nTwkiuGoY" target="_blank" class="chinese-border bg-white rounded-xl p-3 flex items-center justify-between hover:bg-stone-50 transition shadow-sm block">
-            <div class="min-w-0 flex-1">
-              <div class="flex items-center space-x-2">
-                <span class="text-[10px] bg-red-100 text-cinnabar px-1.5 py-0.2 rounded font-bold">2026</span>
-                <h4 class="text-xs font-bold text-ink truncate">2026 Worship and Sermon (崇拜证道)</h4>
-              </div>
-              <p class="text-[11px] text-stone-500 mt-0.5">每周安息日崇拜证道与诗歌现场录制</p>
-            </div>
-            <i data-lucide="chevron-right" class="w-4 h-4 text-stone-400"></i>
-          </a>
-
-          <!-- Playlist 2: Parent Seminar -->
-          <a href="https://www.youtube.com/@sydneychinesesdachurch/playlists" target="_blank" class="chinese-border bg-white rounded-xl p-3 flex items-center justify-between hover:bg-stone-50 transition shadow-sm block">
-            <div class="min-w-0 flex-1">
-              <div class="flex items-center space-x-2">
-                <span class="text-[10px] bg-amber-100 text-imperialGold-dark px-1.5 py-0.2 rounded font-bold">Seminar</span>
-                <h4 class="text-xs font-bold text-ink truncate">家长讲座系列 (Parent Seminar)</h4>
-              </div>
-              <p class="text-[11px] text-stone-500 mt-0.5">亲子教育、家庭关系与基督教教育理念</p>
-            </div>
-            <i data-lucide="chevron-right" class="w-4 h-4 text-stone-400"></i>
-          </a>
-
-          <!-- Playlist 3: Mental Health Talk -->
-          <a href="https://www.youtube.com/playlist?list=PLYqO22feYsoZJA4p1iXWyAJV8zk0tL1_7" target="_blank" class="chinese-border bg-white rounded-xl p-3 flex items-center justify-between hover:bg-stone-50 transition shadow-sm block">
-            <div class="min-w-0 flex-1">
-              <div class="flex items-center space-x-2">
-                <span class="text-[10px] bg-emerald-100 text-jade px-1.5 py-0.2 rounded font-bold">Health</span>
-                <h4 class="text-xs font-bold text-ink truncate">精神健康讲座系列 (Mental Health Talks)</h4>
-              </div>
-              <p class="text-[11px] text-stone-500 mt-0.5">主讲人：冯俊杰牧师 (Pastor Alphon Fung)</p>
-            </div>
-            <i data-lucide="chevron-right" class="w-4 h-4 text-stone-400"></i>
-          </a>
-
-          <!-- Playlist 4: Special Music / 诗班特别音乐 -->
-          <a href="https://www.youtube.com/@sydneychinesesdachurch/playlists" target="_blank" class="chinese-border bg-white rounded-xl p-3 flex items-center justify-between hover:bg-stone-50 transition shadow-sm block">
-            <div class="min-w-0 flex-1">
-              <div class="flex items-center space-x-2">
-                <span class="text-[10px] bg-blue-100 text-blue-700 px-1.5 py-0.2 rounded font-bold">Music</span>
-                <h4 class="text-xs font-bold text-ink truncate">Special Item 特别音乐与圣诗献唱</h4>
-              </div>
-              <p class="text-[11px] text-stone-500 mt-0.5">诗班颂赞、器乐独奏与青年敬拜赞美</p>
-            </div>
-            <i data-lucide="chevron-right" class="w-4 h-4 text-stone-400"></i>
-          </a>
-
-          <!-- Playlist 5: Discipleship Training -->
-          <a href="https://www.youtube.com/playlist?list=PLYqO22feYsoY4TRCAnhPmwAbMuWQp5OVC" target="_blank" class="chinese-border bg-white rounded-xl p-3 flex items-center justify-between hover:bg-stone-50 transition shadow-sm block">
-            <div class="min-w-0 flex-1">
-              <div class="flex items-center space-x-2">
-                <span class="text-[10px] bg-purple-100 text-purple-700 px-1.5 py-0.2 rounded font-bold">Bible</span>
-                <h4 class="text-xs font-bold text-ink truncate">门徒训练与圣所深度游 (Discipleship)</h4>
-              </div>
-              <p class="text-[11px] text-stone-500 mt-0.5">系统圣经查经、门徒装备与属灵生命建造</p>
-            </div>
-            <i data-lucide="chevron-right" class="w-4 h-4 text-stone-400"></i>
-          </a>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ================= PAGE 4: CONNECT, GIVE & SMALL GROUPS ================= -->
-    <section id="page-connect" class="tab-content space-y-4">
-      <div class="border-b border-paperBorder pb-3">
-        <h2 class="text-xl font-serifSc font-bold text-cinnabar" data-i18n="connect_title">团契生活与线上奉献</h2>
-        <p class="text-xs text-stone-600" data-i18n="connect_subtitle">加入小组，彼此相爱；诚心奉献，支持福音广传。</p>
-      </div>
-
-      <!-- Feature 11: Updated Small Groups & Fellowship -->
-      <div class="chinese-border bg-white rounded-xl p-4 shadow-sm">
-        <div class="flex items-center space-x-2 text-cinnabar mb-1">
-          <i data-lucide="users" class="w-5 h-5"></i>
-          <h3 class="font-bold text-sm" data-i18n="groups_title">团契与查经小组 (Small Groups & Fellowship)</h3>
-        </div>
-        <p class="text-xs text-stone-500 mb-3" data-i18n="groups_desc">欢迎加入适合您的小组，在主里同心同行：</p>
-        
-        <div class="space-y-2">
-          <!-- a. Youth Group -->
-          <div class="p-2.5 bg-stone-50 rounded-lg border border-stone-200/60">
-            <div class="flex justify-between items-start">
-              <div>
-                <p class="font-bold text-xs text-ink">Youth Group 青年小组</p>
-                <p class="text-[11px] text-stone-500">Friday, 6:30 pm (周五晚上 6:30)</p>
-              </div>
-              <span class="text-[10px] font-semibold bg-red-100 text-cinnabar px-2 py-0.5 rounded">Strathfield</span>
-            </div>
-          </div>
-
-          <!-- b. Teenager Group -->
-          <div class="p-2.5 bg-stone-50 rounded-lg border border-stone-200/60">
-            <div class="flex justify-between items-start">
-              <div>
-                <p class="font-bold text-xs text-ink">Teenager Group 青少年小组</p>
-                <p class="text-[11px] text-stone-500">Friday, 6:30 pm (周五晚上 6:30)</p>
-              </div>
-              <span class="text-[10px] font-semibold bg-amber-100 text-imperialGold-dark px-2 py-0.5 rounded">Epping, Denistone, Westleigh</span>
-            </div>
-          </div>
-
-          <!-- c. Mandarin Group -->
-          <div class="p-2.5 bg-stone-50 rounded-lg border border-stone-200/60">
-            <div class="flex justify-between items-start">
-              <div>
-                <p class="font-bold text-xs text-ink">Mandarin Group 普通话团契</p>
-                <p class="text-[11px] text-stone-500">Monday, 7:00 pm (周一晚上 7:00)</p>
-              </div>
-              <span class="text-[10px] font-semibold bg-blue-100 text-blue-700 px-2 py-0.5 rounded">Macquarie Park</span>
-            </div>
-          </div>
-
-          <!-- d. Conversation & hobby craft Group -->
-          <div class="p-2.5 bg-stone-50 rounded-lg border border-stone-200/60">
-            <div class="flex justify-between items-start">
-              <div>
-                <p class="font-bold text-xs text-ink">Conversation & Hobby Craft Group 交流手作小组</p>
-                <p class="text-[11px] text-stone-500">Tuesday, 10:00 am (周二上午 10:00)</p>
-              </div>
-              <span class="text-[10px] font-semibold bg-emerald-100 text-jade px-2 py-0.5 rounded">Strathfield</span>
-            </div>
-          </div>
-
-          <!-- e. Zoom Bible Study Group -->
-          <div class="p-2.5 bg-stone-50 rounded-lg border border-stone-200/60">
-            <div class="flex justify-between items-start">
-              <div>
-                <p class="font-bold text-xs text-ink">Zoom Bible Study Group 线上查经班</p>
-                <p class="text-[11px] text-stone-500">Tuesday & Wednesday, 7:30 pm (周二、周三晚上 7:30)</p>
-              </div>
-              <span class="text-[10px] font-semibold bg-purple-100 text-purple-700 px-2 py-0.5 rounded">Online / 线上</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Online Giving Card (Adventist eGiving) -->
-      <div class="chinese-border bg-gradient-to-br from-white to-amber-50/50 rounded-xl p-4 shadow-sm border border-imperialGold/30">
-        <div class="flex items-center space-x-2 text-cinnabar mb-2">
-          <i data-lucide="credit-card" class="w-5 h-5"></i>
-          <h3 class="font-bold text-sm" data-i18n="giving_title">线上崇拜奉献 (Adventist eGiving)</h3>
-        </div>
-        <p class="text-xs text-stone-600 leading-relaxed mb-4" data-i18n="giving_desc">
-          透过澳洲基督复临安息日会官方安全 eGiving 平台支持堂会常费、传道事工、食物银行与各项关怀基金。
-        </p>
-
-        <a href="https://egiving.org.au/Sydney%20Chinese%20SDA%20Church" target="_blank" class="w-full bg-cinnabar hover:bg-cinnabar-dark text-white font-bold text-xs py-3 rounded-xl shadow flex items-center justify-center space-x-1.5 transition">
-          <i data-lucide="lock" class="w-3.5 h-3.5"></i>
-          <span data-i18n="btn_egiving">前往 eGiving 安全奉献通道</span> ↗
-        </a>
-      </div>
-
-      <!-- Volunteer Sign-up Form -->
-      <div class="chinese-border bg-white rounded-xl p-4 shadow-sm">
-        <div class="flex items-center space-x-2 text-cinnabar mb-2">
-          <i data-lucide="hand-heart" class="w-5 h-5"></i>
-          <h3 class="font-bold text-sm" data-i18n="volunteer_title">事奉与义工报名 (Volunteer)</h3>
-        </div>
-        <form onsubmit="handleVolunteerSubmit(event)" class="space-y-3 pt-1">
-          <div>
-            <label class="block text-[11px] font-semibold text-stone-600 mb-1" data-i18n="form_name">您的姓名 Name *</label>
-            <input type="text" required placeholder="如：张弟兄 / Sister Sarah" class="w-full text-xs p-2.5 rounded-lg border border-paperBorder focus:outline-none focus:border-cinnabar bg-stone-50">
-          </div>
-          <div class="grid grid-cols-2 gap-2">
-            <div>
-              <label class="block text-[11px] font-semibold text-stone-600 mb-1" data-i18n="form_phone">电话 Phone *</label>
-              <input type="tel" required placeholder="+61 404 000 000" class="w-full text-xs p-2.5 rounded-lg border border-paperBorder focus:outline-none focus:border-cinnabar bg-stone-50">
-            </div>
-            <div>
-              <label class="block text-[11px] font-semibold text-stone-600 mb-1" data-i18n="form_ministry">服事项目 *</label>
-              <select class="w-full text-xs p-2.5 rounded-lg border border-paperBorder focus:outline-none focus:border-cinnabar bg-stone-50 text-stone-700">
-                <option>食物银行 (Food Pantry)</option>
-                <option>小组团契 (Small Groups)</option>
-                <option>幼童军与青少年 (Youth)</option>
-                <option>爱筵接待 (Potluck Hospitality)</option>
-                <option>诗班与音乐 (Music & AV)</option>
-              </select>
-            </div>
-          </div>
-          <button type="submit" class="w-full bg-stone-800 hover:bg-black text-white font-bold text-xs py-2.5 rounded-xl transition shadow" data-i18n="btn_submit_volunteer">
-            提交报名意向
-          </button>
-        </form>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ================= BOTTOM NAVIGATION BAR ================= -->
-  <nav class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-paperBorder shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
-    <div class="max-w-md mx-auto grid grid-cols-4 py-2 px-1 text-center">
-      <!-- 1. Home -->
-      <button onclick="switchTab('home')" id="nav-home" class="nav-btn flex flex-col items-center justify-center text-cinnabar">
-        <i data-lucide="home" class="w-5 h-5 mb-0.5"></i>
-        <span class="text-[10px] font-semibold tracking-tight" data-i18n="nav_home">首页</span>
-      </button>
-
-      <!-- 2. Plan a Visit -->
-      <button onclick="switchTab('visit')" id="nav-visit" class="nav-btn flex flex-col items-center justify-center text-stone-400 hover:text-cinnabar transition">
-        <i data-lucide="map-pin" class="w-5 h-5 mb-0.5"></i>
-        <span class="text-[10px] font-semibold tracking-tight" data-i18n="nav_visit">初访指引</span>
-      </button>
-
-      <!-- 3. Messages -->
-      <button onclick="switchTab('messages')" id="nav-messages" class="nav-btn flex flex-col items-center justify-center text-stone-400 hover:text-cinnabar transition">
-        <i data-lucide="book-open" class="w-5 h-5 mb-0.5"></i>
-        <span class="text-[10px] font-semibold tracking-tight" data-i18n="nav_messages">讲道影音</span>
-      </button>
-
-      <!-- 4. Connect & Give -->
-      <button onclick="switchTab('connect')" id="nav-connect" class="nav-btn flex flex-col items-center justify-center text-stone-400 hover:text-cinnabar transition">
-        <i data-lucide="heart" class="w-5 h-5 mb-0.5"></i>
-        <span class="text-[10px] font-semibold tracking-tight" data-i18n="nav_connect">团契与奉献</span>
-      </button>
+    <div class="times">
+      <div><b class="en">Sabbath (Saturday)</b><b class="zh">安息日（周六）</b><br><span class="en">9:30 am Bible Study</span><span class="zh">上午 9:30 查经班</span></div>
+      <div><b class="en">Divine Worship</b><b class="zh">崇拜聚会</b><br><span class="en">10:40 am</span><span class="zh">上午 10:40</span></div>
     </div>
-  </nav>
-
-  <!-- ================= BULLETIN MODAL ================= -->
-  <div id="bulletin-modal" class="fixed inset-0 z-50 bg-black/60 hidden items-center justify-center p-4">
-    <div class="bg-white rounded-2xl max-w-sm w-full p-5 relative border border-imperialGold shadow-2xl">
-      <h3 class="text-base font-bold text-cinnabar mb-2" data-i18n="modal_bulletin_title">本周电子周报 (Bulletin)</h3>
-      <p class="text-xs text-stone-600 mb-4" data-i18n="modal_bulletin_desc">包含本周安息日崇拜程序表、教牧同工轮值名册、代祷事项与最新团契活动日程。</p>
-      <div class="space-y-2">
-        <a href="https://sydneychinese.adventist.org.au" target="_blank" class="block w-full text-center bg-cinnabar text-white py-2.5 rounded-lg text-xs font-bold hover:bg-cinnabar-dark transition" data-i18n="download_pdf">前往官方网站查阅最新周报</a>
-        <button onclick="closeBulletinModal()" class="w-full py-2 text-xs text-stone-500 font-semibold" data-i18n="btn_close">关闭</button>
-      </div>
+    <a class="btn" href="tel:+61404234060">📞 +61 404234060</a>
+    <a class="btn" href="#visit"><span class="en">Plan a Visit</span><span class="zh">计划到访</span></a>
+    <a class="btn out" href="#messages"><span class="en">Watch Online</span><span class="zh">在线观看</span></a>
+  </section>
+  <div class="wrap">
+    <div class="card">
+      <h3 class="en">Our Mission</h3><h3 class="zh">我们的使命</h3>
+      <p class="en">A loving Christian community meeting every Sabbath for family-friendly Bible study and worship, bringing people into a relationship with Jesus, with one another and with the community.</p>
+      <p class="zh">我们是一个充满爱的基督徒群体，每个安息日举行适合全家参加的查经与崇拜，帮助人与耶稣、与彼此、与社区建立爱的关系。</p>
     </div>
   </div>
+</main>
 
-  <!-- ================= JAVASCRIPT LOGIC ================= -->
-  <script>
-    // Initialize Lucide Icons
-    lucide.createIcons();
+<!-- 2 VISIT -->
+<main id="visit" class="page">
+  <div class="wrap">
+    <h2 class="en">Plan a Visit</h2><h2 class="zh">计划到访</h2>
+    <div class="card">
+      <h3 class="en">What to Expect</h3><h3 class="zh">您可以期待什么</h3>
+      <ul class="clean">
+        <li class="en"><b>Attire:</b> Come as you are — smart casual is common.</li>
+        <li class="zh"><b>着装：</b>随意即可，整洁休闲装最常见。</li>
+        <li class="en"><b>Parking:</b> Street parking around Jersey Rd; Strathfield station is a short walk. Please check local signs.</li>
+        <li class="zh"><b>停车：</b>Jersey Rd 周边路边停车；斯特拉斯菲尔德火车站步行可达。请留意路牌限制。</li>
+        <li class="en"><b>Environment:</b> Warm, family-friendly, bilingual-minded community. Bible Study 9:30 am, Divine Worship 10:40 am.</li>
+        <li class="zh"><b>环境：</b>温馨、适合家庭。查经 9:30，崇拜 10:40。</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="en">Kids & Youth Ministry</h3><h3 class="zh">儿童与青少年事工</h3>
+      <p class="en">Programs for every age so children and teens grow in faith, friendship and service.</p>
+      <p class="zh">为各年龄层提供活动，让孩子和青少年在信仰、友谊与服务中成长。</p>
+      <a class="btn" target="_blank" rel="noopener" href="https://sydneychinese.adventist.org.au/adventurers">🧒 <span class="en">Adventurers</span><span class="zh">探险家 (Adventurers)</span></a>
+      <a class="btn" target="_blank" rel="noopener" href="https://sydneychinese.adventist.org.au/pathfinders">🧭 <span class="en">Pathfinders</span><span class="zh">开拓者 (Pathfinders)</span></a>
+    </div>
+    <div class="card">
+      <h3 class="en">Community Food Pantry</h3><h3 class="zh">社区食物银行</h3>
+      <p class="en">If you need food assistance in this crazy time, just with $5 you get a hamper with fresh milk, cereal, fresh veggies and can food.</p>
+      <p class="zh">在这艰难时期，如果您需要食物援助，只需 5 澳元即可获得一份食物篮，内含新鲜牛奶、麦片、新鲜蔬菜和罐头食品。</p>
+      <a class="btn red" target="_blank" rel="noopener" href="https://www.facebook.com/strathfield.adventist.food.pantry/about_details"><span class="en">Get in touch</span><span class="zh">联系我们</span></a>
+    </div>
+    <div class="card">
+      <h3 class="en">Find Us</h3><h3 class="zh">交通与地图</h3>
+      <p>14A Jersey Road, Strathfield NSW 2135</p>
+      <iframe class="map" loading="lazy" title="Map" src="https://maps.google.com/maps?q=14A+Jersey+Rd+Strathfield+NSW+2135&output=embed"></iframe>
+      <a class="btn out" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=14A+Jersey+Rd+Strathfield+NSW+2135">🗺️ <span class="en">Get Directions</span><span class="zh">导航前往</span></a>
+    </div>
+  </div>
+</main>
 
-    // ================= SIMPLIFIED CHINESE & ENGLISH DICTIONARY =================
-    let currentLang = 'zh'; // Default is Simplified Chinese
+<!-- 3 MESSAGES -->
+<main id="messages" class="page">
+  <div class="wrap">
+    <h2 class="en">Sermons & Resources</h2><h2 class="zh">讲道与资源</h2>
+    <div class="card">
+      <h3 class="en">Latest Worship Service</h3><h3 class="zh">最新崇拜</h3>
+      <div class="video"><iframe loading="lazy" allowfullscreen title="Latest worship" src="https://www.youtube.com/embed?listType=playlist&list=UULVdS20p_5GtJyvZCVjLQE1DA"></iframe></div>
+      <a class="btn out" target="_blank" rel="noopener" href="https://www.youtube.com/@sydneychinesesdachurch">▶ <span class="en">Open YouTube Channel</span><span class="zh">打开 YouTube 频道</span></a>
+    </div>
+    <div class="card">
+      <h3 class="en">Archive</h3><h3 class="zh">归档</h3>
+      <label for="fs"><span class="en">Series</span><span class="zh">系列</span></label>
+      <select id="fs" onchange="filt()"><option value="">All / 全部</option><option>Sabbath Worship</option><option>Bible Study</option><option>Special Events</option></select>
+      <label for="fy"><span class="en">Year</span><span class="zh">年份</span></label>
+      <select id="fy" onchange="filt()"><option value="">All / 全部</option><option>2026</option><option>2025</option><option>2024</option></select>
+      <div class="grid" id="arch">
+        <a class="item" data-s="Sabbath Worship" data-y="2026" target="_blank" rel="noopener" href="https://www.youtube.com/@sydneychinesesdachurch/playlists"><b class="en">Sabbath Worship Playlist</b><b class="zh">安息日崇拜播放列表</b><small>YouTube</small><span class="tag">Sabbath Worship · 2026</span></a>
+        <a class="item" data-s="Bible Study" data-y="2025" target="_blank" rel="noopener" href="https://www.youtube.com/@sydneychinesesdachurch/playlists"><b class="en">Bible Study Playlist</b><b class="zh">查经播放列表</b><small>YouTube</small><span class="tag">Bible Study · 2025</span></a>
+        <a class="item" data-s="Special Events" data-y="2024" target="_blank" rel="noopener" href="https://www.youtube.com/@sydneychinesesdachurch/playlists"><b class="en">Special Events Playlist</b><b class="zh">特别聚会播放列表</b><small>YouTube</small><span class="tag">Special Events · 2024</span></a>
+      </div>
+      <a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/@sydneychinesesdachurch/playlists"><span class="en">Browse All Playlists</span><span class="zh">浏览全部播放列表</span></a>
+    </div>
+    <div class="card">
+      <h3 class="en">Bulletin & Resources</h3><h3 class="zh">周刊与资源</h3>
+      <a class="btn out" target="_blank" rel="noopener" href="https://sydneychinese.adventist.org.au/newsletter">📰 <span class="en">Digital Newsletter</span><span class="zh">电子周刊</span></a>
+      <a class="btn out" target="_blank" rel="noopener" href="https://sydneychinese.adventist.org.au/prayer-requests">🙏 <span class="en">Prayer Requests</span><span class="zh">代祷请求</span></a>
+    </div>
+  </div>
+</main>
 
-    const translations = {
-      zh: {
-        church_title: "悉尼华人基督复临安息日会",
-        hero_slogan_cn: "寻求上帝 • 寻得盼望 • 归属家园",
-        hero_heading: "欢迎来到悉尼华人基督复临安息日会",
-        hero_subtext: "位于 Strathfield，致力于传播真理、温暖与盼望的跨世代双语属灵大家庭——寻求上帝、寻得盼望、归属家园。",
-        sabbath_service_title: "每周六聚会时间 (Every Saturday)",
-        sabbath_school: "安息日学 (圣经研讨)",
-        divine_service: "崇拜聚会 (双语传译)",
-        btn_plan_visit: "初访指引",
-        btn_watch_online: "讲道影音",
-        feat_potluck: "爱筵午餐",
-        feat_pantry: "食物银行",
-        feat_give: "线上奉献",
-        verse_text: "“但你们在那里寻求耶和华你的神，你尽心尽性寻求祂的时候，就必寻见。”",
-        verse_ref: "申命记 Deuteronomy 4:29",
-        footer_transport: "步行 11 分钟即达 Strathfield 火车站 • 备有街边停车位",
+<!-- 4 CONNECT -->
+<main id="connect" class="page">
+  <div class="wrap">
+    <h2 class="en">Connect & Give</h2><h2 class="zh">连结与奉献</h2>
+    <div class="card">
+      <h3 class="en">Online Giving</h3><h3 class="zh">网上奉献</h3>
+      <p class="en">Give securely through the church’s e-Giving portal.</p>
+      <p class="zh">通过教会安全的 e-Giving 平台奉献。</p>
+      <a class="btn red" target="_blank" rel="noopener" href="https://egiving.org.au/Sydney%20Chinese">💝 <span class="en">Give Now</span><span class="zh">立即奉献</span></a>
+    </div>
+    <div class="card">
+      <h3 class="en">Serving & Volunteer Sign-Up</h3><h3 class="zh">服事与志愿者报名</h3>
+      <label for="vn"><span class="en">Name</span><span class="zh">姓名</span></label><input id="vn">
+      <label for="vm"><span class="en">Area of interest (music, kids, hospitality…)</span><span class="zh">服事意向（音乐、儿童、接待……）</span></label><input id="vm">
+      <button class="btn" onclick="vol()"><span class="en">Send by Email</span><span class="zh">通过邮件发送</span></button>
+    </div>
+    <div class="card">
+      <h3 class="en">Small Groups & Fellowship</h3><h3 class="zh">小组与团契</h3>
+      <ul class="clean">
+        <li><span class="en">Youth Group (Friday, 6:30 pm, Strathfield)</span><span class="zh">青年团契（周五 晚上 6:30，Strathfield）</span></li>
+        <li><span class="en">Teenager Group (Friday, 6:30 pm, Epping, Denistone, Westleigh)</span><span class="zh">少年团契（周五 晚上 6:30，Epping、Denistone、Westleigh）</span></li>
+        <li><span class="en">Mandarin Group (Monday, 7:00 pm, Macquarie Park)</span><span class="zh">国语小组（周一 晚上 7:00，Macquarie Park）</span></li>
+        <li><span class="en">Conversation & Hobby Craft Group (Tuesday, 10:00 am, Strathfield)</span><span class="zh">会话与手工兴趣小组（周二 上午 10:00，Strathfield）</span></li>
+        <li><span class="en">Zoom Bible Study Group (Tuesday & Wednesday, 7:30 pm, Online)</span><span class="zh">Zoom 线上查经小组（周二、周三 晚上 7:30，线上）</span></li>
+      </ul>
+      <a class="btn out" target="_blank" rel="noopener" href="https://sydneychinese.adventist.org.au/events">📅 <span class="en">Community Events</span><span class="zh">社区活动</span></a>
+    </div>
+  </div>
+</main>
 
-        // Tab 2: Plan a Visit
-        visit_title: "参加聚会指南",
-        visit_subtitle: "初次莅临？为您备妥贴心到访指引。",
-        expect_title: "初访须知 (What to Expect)",
-        expect_attire: "<strong>着装要求：</strong> 便装或休闲正装皆宜，轻松舒适即可。",
-        expect_languages: "<strong>双语传译：</strong> 现场提供普通话、粤语与英文同声传译。",
-        expect_lunch: "<strong>亚洲素食爱筵：</strong> 崇拜结束后（12:30 PM）备有丰富温热爱筵，免费欢迎所有朋友！",
-        expect_parking: "<strong>停车指引：</strong> 教堂周边的 Jersey Road 与毗邻街道均备有充裕的街边停车位。",
-        kids_title: "儿童与青少年事工 (Kids & Youth)",
-        kids_desc: "每周六上午 9:30 设有分龄圣经研习班、生动的故事时间与青年聚会，陪伴孩子在信仰与爱中健康成长。",
-        pantry_title: "社区食物银行 (Community Food Pantry)",
-        pantry_desc: "“If you need food assistance in this crazy time, just with $5 you get a hamper with fresh milk, cereal, fresh veggies and can food”",
-        pantry_pickup: "服务 Strathfield 社区与有需要的朋友",
-        pantry_get_in_touch: "联系我们 (Get in Touch)",
-        map_title: "地址与交通指引",
-        open_google_maps: "在 Google Maps 打开导航路线",
+<footer>
+  <b class="zh">悉尼华人基督复临安息日会</b><b class="en">Sydney Chinese Seventh-day Adventist Church</b><br>
+  14A Jersey Road, Strathfield NSW 2135<br>
+  📞 <a href="tel:+61404234060">+61 404234060</a><br>
+  ✉️ <a href="mailto:sydchineseadventist@gmail.com">sydchineseadventist@gmail.com</a><br>
+  <a target="_blank" rel="noopener" href="https://www.facebook.com/sydneychinesesda">Facebook</a> · <a target="_blank" rel="noopener" href="https://www.youtube.com/@sydneychinesesdachurch">YouTube</a><br>
+  <small>© 2026 · <a href="https://sydneychinese.adventist.org.au/legal/privacy">Privacy</a></small>
+</footer>
 
-        // Tab 3: Messages & Playlists
-        messages_title: "讲道影音与属灵资源",
-        messages_subtitle: "来自悉尼华人安息日会 YouTube 官方频道的讲道与特辑播单。",
-        featured_sermon_tag: "最新安息日崇拜与证道 • Live Worship",
-        digital_bulletin: "本周周报 (Bulletin)",
-        playlist_heading: "精选系列播单 (Featured Playlists)",
+<nav>
+  <a href="#home" data-p="home"><span class="i">🏮</span><span class="en">Home</span><span class="zh">首页</span></a>
+  <a href="#visit" data-p="visit"><span class="i">📍</span><span class="en">Visit</span><span class="zh">到访</span></a>
+  <a href="#messages" data-p="messages"><span class="i">📖</span><span class="en">Messages</span><span class="zh">信息</span></a>
+  <a href="#connect" data-p="connect"><span class="i">☕</span><span class="en">Connect</span><span class="zh">连结</span></a>
+</nav>
 
-        // Tab 4: Connect & Give
-        connect_title: "团契生活与线上奉献",
-        connect_subtitle: "加入小组，彼此相爱；诚心奉献，支持福音广传。",
-        groups_title: "团契与查经小组 (Small Groups & Fellowship)",
-        groups_desc: "欢迎加入适合您的小组，在主里同心同行：",
-        giving_title: "线上崇拜奉献 (Adventist eGiving)",
-        giving_desc: "透过澳洲基督复临安息日会官方安全 eGiving 平台支持堂会常费、传道事工、食物银行与各项关怀基金。",
-        btn_egiving: "前往 eGiving 安全奉献通道",
-        volunteer_title: "事奉与义工报名 (Volunteer)",
-        form_name: "您的姓名 Name *",
-        form_phone: "电话 Phone *",
-        form_ministry: "服事项目 *",
-        btn_submit_volunteer: "提交报名意向",
-
-        // Bottom Nav
-        nav_home: "首页",
-        nav_visit: "初访指引",
-        nav_messages: "讲道影音",
-        nav_connect: "团契与奉献",
-
-        // Modals
-        modal_bulletin_title: "本周电子周报 (Bulletin)",
-        modal_bulletin_desc: "包含本周安息日崇拜程序表、教牧同工轮值名册、代祷事项与最新团契活动日程。",
-        download_pdf: "前往官方网站查阅最新周报",
-        btn_close: "关闭"
-      },
-      en: {
-        church_title: "Sydney Chinese SDA Church",
-        hero_slogan_cn: "Discover God • Finding Hope • Belong",
-        hero_heading: "Welcome to Sydney Chinese Seventh-day Adventist Church",
-        hero_subtext: "A warm bilingual spiritual home in Strathfield — Discover God, Finding Hope, and Belong across generations.",
-        sabbath_service_title: "Every Saturday Service Times",
-        sabbath_school: "Sabbath School (Bible Study)",
-        divine_service: "Divine Worship Service",
-        btn_plan_visit: "Plan a Visit",
-        btn_watch_online: "Watch Sermons",
-        feat_potluck: "Potluck Lunch",
-        feat_pantry: "Food Pantry",
-        feat_give: "eGiving",
-        verse_text: "“If from there you seek the LORD your God, you will find him if you seek him with all your heart and with all your soul.”",
-        verse_ref: "Deuteronomy 4:29",
-        footer_transport: "11-minute walk from Strathfield Station • Street Parking Available",
-
-        // Tab 2: Plan a Visit
-        visit_title: "Plan Your Visit",
-        visit_subtitle: "First time joining us? Here is everything you need to know.",
-        expect_title: "What to Expect",
-        expect_attire: "<strong>Attire:</strong> Casual or smart casual. Come as you are!",
-        expect_languages: "<strong>Bilingual:</strong> English, Cantonese, and Mandarin interpretation provided.",
-        expect_lunch: "<strong>Asian Potluck Lunch:</strong> Join us for a complimentary warm vegetarian lunch after service at 12:30 PM!",
-        expect_parking: "<strong>Parking:</strong> Street parking is available around Jersey Road and nearby avenues.",
-        kids_title: "Kids & Youth Ministry",
-        kids_desc: "Engaging Sabbath School classes every Saturday at 9:30 AM for toddlers, kids, and youth.",
-        pantry_title: "Community Food Pantry",
-        pantry_desc: "“If you need food assistance in this crazy time, just with $5 you get a hamper with fresh milk, cereal, fresh veggies and can food”",
-        pantry_pickup: "Serving the Strathfield community and families in need",
-        pantry_get_in_touch: "Get in Touch",
-        map_title: "Location & Directions",
-        open_google_maps: "Open in Google Maps",
-
-        // Tab 3: Messages & Playlists
-        messages_title: "Sermons & Resources",
-        messages_subtitle: "Watch official sermon playlists from our Sydney Chinese SDA YouTube channel.",
-        featured_sermon_tag: "Latest Sabbath Service • Live Worship",
-        digital_bulletin: "Digital Bulletin",
-        playlist_heading: "Official YouTube Playlists",
-
-        // Tab 4: Connect & Give
-        connect_title: "Connect, Give & Fellowship",
-        connect_subtitle: "Join a small group to grow in faith and support God's work.",
-        groups_title: "Small Groups & Fellowship",
-        groups_desc: "Find your community and grow in Christ together:",
-        giving_title: "Online Giving Portal (eGiving)",
-        giving_desc: "Support our local church budget and community missions securely via Adventist eGiving.",
-        btn_egiving: "Proceed to Secure eGiving Portal",
-        volunteer_title: "Volunteer & Ministry Sign-Up",
-        form_name: "Your Name *",
-        form_phone: "Phone Number *",
-        form_ministry: "Ministry Preference *",
-        btn_submit_volunteer: "Submit Expression of Interest",
-
-        // Bottom Nav
-        nav_home: "Home",
-        nav_visit: "Plan a Visit",
-        nav_messages: "Sermons",
-        nav_connect: "Give & Connect",
-
-        // Modals
-        modal_bulletin_title: "Digital Weekly Bulletin",
-        modal_bulletin_desc: "Contains order of service, prayer requests, roster, and weekly announcements.",
-        download_pdf: "Visit Official Site for Bulletin",
-        btn_close: "Close"
-      }
-    };
-
-    function toggleLanguage() {
-      currentLang = currentLang === 'zh' ? 'en' : 'zh';
-      document.getElementById('lang-indicator').innerText = currentLang === 'zh' ? 'English' : '简体中文';
-
-      const elements = document.querySelectorAll('[data-i18n]');
-      elements.forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[currentLang][key]) {
-          el.innerHTML = translations[currentLang][key];
-        }
-      });
-    }
-
-    // ================= TAB NAVIGATION =================
-    function switchTab(tabId) {
-      document.querySelectorAll('.tab-content').forEach(section => {
-        section.classList.remove('active');
-      });
-
-      const target = document.getElementById('page-' + tabId);
-      if (target) {
-        target.classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-
-      document.querySelectorAll('.nav-btn').forEach(btn => {
-        btn.classList.remove('text-cinnabar');
-        btn.classList.add('text-stone-400');
-      });
-
-      const activeNavBtn = document.getElementById('nav-' + tabId);
-      if (activeNavBtn) {
-        activeNavBtn.classList.remove('text-stone-400');
-        activeNavBtn.classList.add('text-cinnabar');
-      }
-    }
-
-    // ================= MODAL & FORM HANDLERS =================
-    function openBulletinModal() { 
-      document.getElementById('bulletin-modal').classList.replace('hidden', 'flex'); 
-    }
-    function closeBulletinModal() { 
-      document.getElementById('bulletin-modal').classList.replace('flex', 'hidden'); 
-    }
-
-    function handleVolunteerSubmit(e) {
-      e.preventDefault();
-      alert(currentLang === 'zh' 
-        ? '感谢您愿意参与事奉！教会同工将尽快与您联系。' 
-        : 'Thank you for volunteering! Our ministry team will connect with you shortly.');
-      e.target.reset();
-    }
-  </script>
+<script>
+function setLang(l){
+  document.body.classList.toggle('zh',l==='zh');
+  document.documentElement.lang=l==='zh'?'zh-Hans':'en';
+  bEn.classList.toggle('on',l==='en');bZh.classList.toggle('on',l==='zh');
+  try{localStorage.setItem('lang',l)}catch(e){}
+}
+function route(){
+  var p=(location.hash||'#home').slice(1);
+  if(!document.getElementById(p))p='home';
+  document.querySelectorAll('.page').forEach(function(e){e.classList.toggle('on',e.id===p)});
+  document.querySelectorAll('nav a').forEach(function(a){a.classList.toggle('on',a.dataset.p===p)});
+  window.scrollTo(0,0);
+}
+function filt(){
+  var s=fs.value,y=fy.value;
+  document.querySelectorAll('#arch .item').forEach(function(i){
+    i.style.display=((!s||i.dataset.s===s)&&(!y||i.dataset.y===y))?'':'none';
+  });
+}
+function vol(){
+  location.href='mailto:sydchineseadventist@gmail.com?subject='+encodeURIComponent('Volunteer sign-up')+'&body='+encodeURIComponent('Name: '+vn.value+'\nInterest: '+vm.value);
+}
+window.addEventListener('hashchange',route);
+var sv=null;try{sv=localStorage.getItem('lang')}catch(e){}
+setLang(sv||((navigator.language||'').toLowerCase().indexOf('zh')===0?'zh':'en'));
+route();
+</script>
 </body>
 </html>
